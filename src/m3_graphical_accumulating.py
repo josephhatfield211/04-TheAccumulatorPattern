@@ -9,8 +9,8 @@ Additionally, it emphasizes that you must
 before you can implement a solution to the problem in Python.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Joey Hatfield.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -96,7 +96,7 @@ def draw_parallel_lines(n, point, length, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # done: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -109,7 +109,11 @@ def draw_parallel_lines(n, point, length, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
-
+    windownew = window
+    for k in range(n):
+        line = rg.Line(rg.Point(point.x,point.y+k*30),rg.Point(point.x+length,point.y+k*30))
+        line.attach_to(windownew)
+    windownew.render()
 
 def run_test_draw_lines():
     """ Tests the   draw_lines  function. """
@@ -175,6 +179,13 @@ def draw_lines(n, point, window):
     ####################################################################
     # ------------------------------------------------------------------
 
+    windownew = window
+    counter = -100
+    for k in range(n):
+        line = rg.Line(rg.Point(point.x, point.y + counter), rg.Point(point.x + 100, point.y + counter))
+        line.attach_to(windownew)
+        counter = counter + (100/n)
+    windownew.render()
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
